@@ -90,10 +90,3 @@ Churn prediction is critical for subscription-based businesses. This project pro
 - **XGBoost** achieved the best overall performance.
 
 ---
-
-## 🚀 How to Run the Project
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/Customer_Churn_Prediction.git
-   cd Customer_Churn_Prediction
