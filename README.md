@@ -45,8 +45,6 @@ This indicates that around **26.5%** of customers in the dataset churned, highli
 Multiple models were tested. The final model was trained using a **Random Forest Classifier** due to its superior performance in handling imbalanced data and feature importance ranking.
 
 ### 📊 Confusion Matrix
-
-```text
 Confusion Matrix:
 [[939  94]
  [193 181]]
@@ -83,7 +81,5 @@ Confusion Matrix:
 - **Environment:** Jupyter Notebook
 
 ---
-
-## 📁 File Structure
 
 
