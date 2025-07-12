@@ -1,92 +1,89 @@
 # 📉 Customer Churn Prediction with Supervised Learning for Subscription-Based Services
 
-This project focuses on predicting customer churn using supervised machine learning models. The dataset, provided by IBM, contains demographic and behavioral information of telecom customers. The main goal is to identify patterns that indicate whether a customer is likely to leave the service, helping businesses retain customers more effectively.
+A supervised machine learning project to predict customer churn based on demographic, service usage, and account information. This solution is designed to support strategic retention efforts by identifying at-risk customers.
 
 ---
 
-## 🧾 Project Overview
+## 📚 About the Dataset
 
-Churn prediction is critical for subscription-based businesses. This project provides a complete data science pipeline:
+**Source:** [IBM Sample Data Sets]  
+Each row in the dataset represents a unique customer, and each column contains attributes related to customer demographics, services subscribed, and account information.
 
-- Data Preprocessing & Cleaning
-- Exploratory Data Analysis (EDA)
-- Feature Engineering
-- Imbalanced Data Handling using SMOTE
-- Model Building & Evaluation (Random Forest, XGBoost)
-- Performance Visualization & Insights
-
----
-
-## 📂 Dataset Details
-
-**Source**: IBM Sample Dataset  
-**Target Variable**: `Churn` (Yes/No)
-
-### Key Columns:
-- **Demographics**: Gender, Partner, Dependents
-- **Account Info**: Tenure, Contract, Payment Method, Monthly & Total Charges
-- **Services Used**: Internet, Streaming, Tech Support, Online Security, etc.
+### Dataset Includes:
+- **Churn Status:** Whether the customer left in the last month (`Yes` or `No`)
+- **Services:** Phone, Internet, Online Security, Backup, Tech Support, Streaming
+- **Account Info:** Tenure, Contract Type, Billing Method, Monthly & Total Charges
+- **Demographics:** Gender, Senior Citizen, Partner, Dependent status
 
 ---
 
-## 🛠️ Tools & Technologies Used
+## 🎯 Project Objective
 
-- Python
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Scikit-learn
-- XGBoost
-- SMOTE (from imbalanced-learn)
+To analyze customer data and build machine learning models that can:
+- Predict the likelihood of a customer churning
+- Support the development of targeted customer retention programs
 
 ---
 
-## 🔍 Key Steps Performed
+## 🔍 Exploratory Data Analysis (EDA)
 
-### ✅ Data Cleaning
-- Encoding issues handled with `chardet`
-- Converted `TotalCharges` to numeric
-- Handled missing values and invalid entries
+- **Churn Distribution:**
+  - Customers Not Churned: `5174`
+  - Customers Churned: `1869`
 
-### 📊 Exploratory Data Analysis
-- Visualized churn distribution
-- Compared churn rates across contract types, tenure, and services
-- Found strong correlation between short tenure and churn
+This indicates that around **26.5%** of customers in the dataset churned, highlighting a significant churn rate worth addressing.
 
-### ⚙️ Feature Engineering
-- Label and one-hot encoding for categorical variables
-- Feature scaling using `StandardScaler`
+- **Key Patterns Identified:**
+  - Customers with month-to-month contracts, higher monthly charges, or paperless billing were more likely to churn.
+  - Long-tenured customers and those on yearly contracts showed higher loyalty.
+  - Services like tech support and online security were associated with reduced churn rates.
 
-### 🧠 Model Building
-- **Random Forest Classifier**
-- **XGBoost Classifier**
-- GridSearchCV used for hyperparameter tuning
+---
 
-### 📈 Evaluation Metrics
-- Accuracy
-- Confusion Matrix
-- ROC Curve & AUC Score
-- Precision-Recall Curve
+## 🧠 Model Building
+
+Multiple models were tested. The final model was trained using a **Random Forest Classifier** due to its superior performance in handling imbalanced data and feature importance ranking.
+
+### 📊 Confusion Matrix
+
+```text
+Confusion Matrix:
+[[939  94]
+ [193 181]]
+
+
+### ✅ Evaluation Metrics
+
+| Metric         | Class 0 (Not Churned) | Class 1 (Churned) |
+|----------------|-----------------------|--------------------|
+| Precision      | 0.83                  | 0.66               |
+| Recall         | 0.91                  | 0.48               |
+| F1-score       | 0.87                  | 0.56               |
+
+- **Overall Accuracy:** 80%
+- **Macro F1-Score:** 71%
+- **Insight:** The model performs well in identifying non-churning customers but needs further optimization (e.g., SMOTE, cost-sensitive learning) to improve recall for churning customers.
 
 ---
 
 ## 💡 Business Insights
 
-- **Short Tenure = High Churn**: Customers in their early months are more likely to churn. Early engagement and onboarding strategies are crucial.
-- **Contract Type Matters**: Month-to-month contracts have significantly higher churn rates. Annual or two-year contracts show better customer retention.
-- **Additional Services Improve Retention**: Customers who subscribe to multiple services (e.g., online backup, tech support) are less likely to churn.
-- **Paperless Billing & Electronic Payment**: Customers using paperless billing and electronic payment methods had slightly higher churn rates. A better UX around billing might help.
-- **Senior Citizens and Churn**: Senior citizens churn at a higher rate — possibly due to service complexity or pricing.
+- **Customer Retention Risk:** Nearly 1 in 4 customers are at risk of churn, with strong indicators being short tenure, monthly contracts, and high billing charges.
+- **Loyalty Indicators:** Long-term contracts, additional services (security, tech support), and lower monthly costs contribute to customer retention.
+- **Actionable Strategy:**
+  - Provide retention offers for customers on monthly contracts.
+  - Promote bundle services and annual contracts.
+  - Improve onboarding for new customers to reduce early churn.
 
 ---
 
-## 📊 Results Summary
+## 🛠️ Tools & Technologies
 
-| Model               | Accuracy | AUC Score |
-|--------------------|----------|-----------|
-| Random Forest       | High     | Good      |
-| XGBoost             | High     | Excellent |
-
-- **SMOTE** improved recall by balancing the class distribution.
-- **XGBoost** achieved the best overall performance.
+- **Languages & Libraries:** Python, Pandas, NumPy, Seaborn, Scikit-learn, Matplotlib
+- **Environment:** Jupyter Notebook
 
 ---
+
+## 📁 File Structure
+
+
