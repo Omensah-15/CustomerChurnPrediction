@@ -6,7 +6,7 @@ A supervised machine learning project to predict customer churn based on demogra
 
 ## 📚 About the Dataset
 
-**Source:** [IBM Sample Data Sets]  
+**Source:** Kaggle Dataset
 Each row in the dataset represents a unique customer, and each column contains attributes related to customer demographics, services subscribed, and account information.
 
 ### Dataset Includes:
